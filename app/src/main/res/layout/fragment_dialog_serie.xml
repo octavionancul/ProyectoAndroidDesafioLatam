@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/closeIv"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:scaleType="center"
+        android:src="@mipmap/baseline_close_black_24" />
+<!--
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/setsTil"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/repsTil"
+        android:layout_centerVertical="true"
+        android:hint="sets">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/setsEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </android.support.design.widget.TextInputLayout>
+-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/repsTil"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="reps">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/reps2Et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/weightTil"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/repsTil"
+        android:hint="peso">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/weight2Et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/errorTv"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone"
+        android:gravity="center"
+        tools:visibility="visible"
+        android:layout_below="@id/closeIv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/serieBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        android:theme="@style/AccentButton" />
+
+    <ProgressBar
+        android:id="@+id/seriePb"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

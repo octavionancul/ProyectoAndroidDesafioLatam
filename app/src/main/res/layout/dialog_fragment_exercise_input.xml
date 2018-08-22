@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<EditText
+    android:hint="Nombre ejercicio"
+    android:id="@+id/inputNameEt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:inputType="number"
+        android:layout_weight="1"
+        android:hint="Series"
+        android:id="@+id/inputSetsEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="number"
+        android:layout_weight="1"
+        android:hint="Reps"
+        android:id="@+id/inputRepsEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="number"
+        android:layout_weight="1"
+        android:hint="Peso"
+        android:id="@+id/inputWeightEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+    <Button
+        android:layout_gravity="center"
+        android:text="Guardar"
+        android:id="@+id/saveExerciseBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
