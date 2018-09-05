@@ -60,18 +60,6 @@ public class SetsActivity extends AppCompatActivity implements SetsCallback {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         final String dateFormat = format.format(date);
-        RecyclerView recyclerView = findViewById(R.id.setsRv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-
-        //Definir el usuario
-        FirebaseRecyclerOptions<Set> options = new FirebaseRecyclerOptions.Builder<Set>()
-                .setQuery( new Nodes().userSet(new CurrentUser().uid()).child(exercise.getKey()).child(dateFormat),Set.class)
-                .setLifecycleOwner(this)
-                .build();
-        SetsAdapter adapter = new SetsAdapter(options,this);
-        recyclerView.setAdapter(adapter);
-
 /*
         saveSetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,57 +83,7 @@ public class SetsActivity extends AppCompatActivity implements SetsCallback {
         setRepEt.setText(String.valueOf(exercise.getReps()));
         setWeightEt.setText(String.valueOf(exercise.getWeight()));*/
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        Query lastQuery = databaseReference.child("sets").child(new CurrentUser().uid()).child(exercise.getKey()).orderByKey().limitToLast(2);
 
-        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-              //  String message = dataSnapshot.child("message").getValue().toString();
-             //  long set = dataSnapshot.getChildrenCount();
-               // Log.d("Count " , String.valueOf(dataSnapshot.getChildrenCount()));
-               // List<Set> setList = new ArrayList<>();
-
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                     Set set = postSnapshot.getChildren().iterator().next().getValue(Set.class);
-                 //  Log.d("Get Data", postSnapshot.getKey());
-                    if(set.getDate().equals(dateFormat)){
-
-                    }else{
-                       previusSet=set.getDate();
-                        Log.d("fecha distinta actual", set.getDate());
-                    }
-                    if(previusSet!=null) {
-                      //buscar nodo con esta key y mostrar lista  en un RV
-
-
-                   //    linearLayout.setVisibility(View.VISIBLE);
-
-                        RecyclerView recyclerView = findViewById(R.id.sets2Rv);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(SetsActivity.this));
-                        recyclerView.addItemDecoration(new DividerItemDecoration(SetsActivity.this, LinearLayoutManager.VERTICAL));
-
-                        //Definir el usuario
-                        FirebaseRecyclerOptions<Set> options = new FirebaseRecyclerOptions.Builder<Set>()
-                                .setQuery( new Nodes().userSet(new CurrentUser().uid()).child(exercise.getKey()).child(previusSet),Set.class)
-                                .setLifecycleOwner(SetsActivity.this)
-                                .build();
-                        SetsAdapter adapter = new SetsAdapter(options,SetsActivity.this);
-                        recyclerView.setAdapter(adapter);
-
-
-                        Log.d("set anterior", previusSet);
-                    }
-
-                    Log.d("Get Data2", set.getDate());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //Handle possible errors.
-            }
-        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab2);
