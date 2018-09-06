@@ -2,9 +2,11 @@ package cl.octavionancul.proyectoandroiddesafiolatam.views;
 
 
 import android.arch.lifecycle.LifecycleOwner;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,12 +39,16 @@ import cl.octavionancul.proyectoandroiddesafiolatam.models.Set;
  * A simple {@link Fragment} subclass.
  */
 public class PreviusSetsFragment extends Fragment implements SetsCallback {
-
+    //private FloatingActionButton fab;
     private   String previusSet;
     public PreviusSetsFragment() {
         // Required empty public constructor
     }
 
+    public static PreviusSetsFragment newInstance(){
+
+        return new PreviusSetsFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +60,8 @@ public class PreviusSetsFragment extends Fragment implements SetsCallback {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+      //  fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+       // fab.setVisibility(View.GONE);
         final Exercise exercise = (Exercise) getActivity().getIntent().getSerializableExtra(ExercisesFragment.EXERCISE);
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
@@ -110,10 +118,18 @@ public class PreviusSetsFragment extends Fragment implements SetsCallback {
             }
         });
 
+
+
     }
 
     @Override
     public void update(int volume) {
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
     }
 }

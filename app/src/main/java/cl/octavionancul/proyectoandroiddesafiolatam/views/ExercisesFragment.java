@@ -61,7 +61,7 @@ public class ExercisesFragment extends Fragment implements ExercisesCallback {
 
     @Override
     public void clicked(Exercise exercise) {
-        Intent intent = new Intent(getActivity(),SetsActivity.class);
+        Intent intent = new Intent(getActivity(),SetsTabsActivity.class);
         intent.putExtra(EXERCISE,exercise);
         startActivity(intent);
        // Toast.makeText(getContext(), exercise.getName(), Toast.LENGTH_SHORT).show();

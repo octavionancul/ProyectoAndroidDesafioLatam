@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import cl.octavionancul.proyectoandroiddesafiolatam.views.CurrentUser;
 import cl.octavionancul.proyectoandroiddesafiolatam.R;
 import cl.octavionancul.proyectoandroiddesafiolatam.data.Nodes;
@@ -45,6 +48,17 @@ public class SetsAdapter extends FirebaseRecyclerAdapter<Set,SetsAdapter.SetHold
                new Nodes().sets().child(new CurrentUser().uid()).child(set.getExercise()).child(set.getDate()).child(set.getKey()).removeValue();
             }
         });
+
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        final String dateFormat = format.format(date);
+
+        if(model.getDate().equals(dateFormat)){
+
+        }else{
+            holder.deleteIv.setVisibility(View.INVISIBLE);
+        }
+
 
 
     }

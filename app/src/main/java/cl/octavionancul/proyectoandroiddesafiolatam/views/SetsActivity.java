@@ -57,9 +57,11 @@ public class SetsActivity extends AppCompatActivity implements SetsCallback {
         set.setWeight(20);
         Log.d("key set",key);
         new Nodes().userSet("jljnljhodhojsi").child(exercise.getKey()).child(key).setValue(set);*/
-        Date date = new Date();
+
+/*        Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-        final String dateFormat = format.format(date);
+        final String dateFormat = format.format(date);*/
+
 /*
         saveSetBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,6 +4,7 @@ package cl.octavionancul.proyectoandroiddesafiolatam.views;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,11 +33,16 @@ import cl.octavionancul.proyectoandroiddesafiolatam.models.Set;
  */
 public class SetsFragment extends Fragment implements SetsCallback{
 
+    //private static FloatingActionButton fab;
     LinearLayout linearLayout ;
     public SetsFragment() {
         // Required empty public constructor
     }
 
+    public static SetsFragment newInstance(){
+
+        return new SetsFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +54,8 @@ public class SetsFragment extends Fragment implements SetsCallback{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+    //    fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+     //   fab.setVisibility(View.VISIBLE);
         final Exercise exercise = (Exercise) getActivity().getIntent().getSerializableExtra(ExercisesFragment.EXERCISE);
         Log.d("ejercicio fragment",exercise.getName());
 
